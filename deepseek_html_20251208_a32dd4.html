@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Auto Care | Expert Mechanic Services</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary: #dc2626;
+            --primary-dark: #991b1b;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1560851248-5d3a322e4b4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .services-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        
+        .contact-bg {
+            background: linear-gradient(rgba(21, 21, 21, 0.95), rgba(21, 21, 21, 0.95)), url('https://images.unsplash.com/photo-1563720223488-8f2f62a6e71a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .sticky-nav.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .testimonial-slider {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+        
+        .testimonial-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .work-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .work-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-box:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: black;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header & Navigation -->
+    <header class="sticky-nav bg-transparent text-white">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-tools text-2xl text-red-600"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-heading text-2xl font-bold">Precision<span class="text-red-500">Auto</span></h1>
+                        <p class="text-xs text-gray-300">Expert Auto Care</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="#home" class="hover:text-red-400 transition font-medium">Home</a>
+                    <a href="#about" class="hover:text-red-400 transition font-medium">About</a>
+                    <a href="#services" class="hover:text-red-400 transition font-medium">Services</a>
+                    <a href="#work" class="hover:text-red-400 transition font-medium">Our Work</a>
+                    <a href="#testimonials" class="hover:text-red-400 transition font-medium">Testimonials</a>
+                    <a href="#contact" class="hover:text-red-400 transition font-medium">Contact</a>
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-phone-alt mr-2"></i>Call Now
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden bg-black/95 absolute w-full z-50 hidden">
+            <div class="flex flex-col space-y-6 p-8">
+                <a href="#home" class="text-white hover:text-red-400 text-lg">Home</a>
+                <a href="#about" class="text-white hover:text-red-400 text-lg">About</a>
+                <a href="#services" class="text-white hover:text-red-400 text-lg">Services</a>
+                <a href="#work" class="text-white hover:text-red-400 text-lg">Our Work</a>
+                <a href="#testimonials" class="text-white hover:text-red-400 text-lg">Testimonials</a>
+                <a href="#contact" class="text-white hover:text-red-400 text-lg">Contact</a>
+                <a href="#contact" class="btn-primary text-center">
+                    <i class="fas fa-phone-alt mr-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-24 lg:py-32">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl animate-fade-in">
+                <span class="badge bg-red-600 text-white mb-4">25+ Years Experience</span>
+                <h1 class="font-heading text-4xl lg:text-6xl font-bold mb-6">Expert Auto <span class="text-red-400">Repair</span> & Maintenance</h1>
+                <p class="text-xl lg:text-2xl mb-8 text-gray-200">Reliable, honest, and professional automotive services for all makes and models. Your satisfaction is our priority.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#contact" class="btn-primary text-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>Book Appointment
+                    </a>
+                    <a href="#services" class="btn-secondary text-center">
+                        <i class="fas fa-wrench mr-2"></i>Our Services
+                    </a>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-8 border-t border-white/20">
+                    <div class="text-center">
+                        <p class="counter" data-target="2500">0</p>
+                        <p class="text-gray-300">Cars Serviced</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="counter" data-target="25">0</p>
+                        <p class="text-gray-300">Years Experience</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="counter" data-target="98">0</p>
+                        <p class="text-gray-300">% Satisfaction</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="counter" data-target="12">0</p>
+                        <p class="text-gray-300">Month Warranty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 lg:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Mechanic at work" 
+                         class="rounded-2xl shadow-2xl">
+                </div>
+                <div class="lg:w-1/2 lg:pl-12">
+                    <span class="text-red-600 font-bold uppercase tracking-wider">About Us</span>
+                    <h2 class="font-heading text-4xl lg:text-5xl font-bold mt-2 mb-6">Meet John <span class="text-red-600">Carter</span></h2>
+                    <p class="text-gray-600 text-lg mb-6">Master Technician with 25+ years of experience in automotive repair and diagnostics. ASE Certified with specialties in engine repair, transmission, and electrical systems.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-award text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">ASE Certified Master Technician</h4>
+                                <p class="text-gray-600">Highest level of automotive service certification</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-car text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">All Makes & Models</h4>
+                                <p class="text-gray-600">Expertise in domestic, European, and Asian vehicles</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-shield-alt text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">12-Month Warranty</h4>
+                                <p class="text-gray-600">All repairs come with a 12-month / 12,000-mile warranty</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="btn-primary">
+                            <i class="fas fa-phone-alt mr-2"></i>Contact Me
+                        </a>
+                        <a href="#testimonials" class="btn-secondary text-gray-800 border-gray-800 hover:bg-gray-800 hover:text-white">
+                            <i class="fas fa-star mr-2"></i>See Reviews
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 lg:py-24 services-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-red-600 font-bold uppercase tracking-wider">Our Services</span>
+                <h2 class="font-heading text-4xl lg:text-5xl font-bold mt-2 mb-4">Professional Auto <span class="text-red-600">Services</span></h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive automotive solutions with precision and care. We use state-of-the-art diagnostic equipment and quality parts.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="service-icon bg-red-100">
+                        <i class="fas fa-car-battery text-3xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Engine Diagnostics</h3>
+                    <p class="text-gray-600 text-center mb-6">Complete engine analysis using advanced diagnostic tools to identify issues accurately.</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-red-600">From $89</span>
+                        <p class="text-gray-500 text-sm mt-2">60-minute diagnostic</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="service-icon bg-blue-100">
+                        <i class="fas fa-oil-can text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Oil Change Service</h3>
+                    <p class="text-gray-600 text-center mb-6">Complete oil and filter change with multi-point inspection. Synthetic and conventional options.</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-red-600">From $39</span>
+                        <p class="text-gray-500 text-sm mt-2">Includes filter</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="service-icon bg-green-100">
+                        <i class="fas fa-tire text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Brake Services</h3>
+                    <p class="text-gray-600 text-center mb-6">Complete brake inspection, pad replacement, rotor resurfacing, and brake fluid flush.</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-red-600">From $149</span>
+                        <p class="text-gray-500 text-sm mt-2">Per axle</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="service-icon bg-yellow-100">
+                        <i class="fas fa-cogs text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Transmission Repair</h3>
+                    <p class="text-gray-600 text-center mb-6">Automatic and manual transmission repair, rebuild, and fluid services with warranty.</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-red-600">From $299</span>
+                        <p class="text-gray-500 text-sm mt-2">Diagnostic included</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="service-icon bg-purple-100">
+                        <i class="fas fa-snowflake text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">AC Repair</h3>
+                    <p class="text-gray-600 text-center mb-6">Complete AC system diagnostics, recharge, compressor replacement, and leak detection.</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-red-600">From $129</span>
+                        <p class="text-gray-500 text-sm mt-2">Includes recharge</p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="service-icon bg-indigo-100">
+                        <i class="fas fa-bolt text-3xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Electrical Systems</h3>
+                    <p class="text-gray-600 text-center mb-6">Battery, alternator, starter, wiring, and computer system diagnostics and repair.</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-red-600">From $79</span>
+                        <p class="text-gray-500 text-sm mt-2">Diagnostic fee</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-flex items-center text-red-600 font-bold text-lg hover:text-red-700">
+                    View All Services & Pricing
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Work Gallery -->
+    <section id="work" class="py-16 lg:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-red-600 font-bold uppercase tracking-wider">Our Work</span>
+                <h2 class="font-heading text-4xl lg:text-5xl font-bold mt-2 mb-4">Recent <span class="text-red-600">Projects</span></h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">See examples of our quality workmanship and attention to detail.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Work 1 -->
+                <div class="overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Engine repair" 
+                         class="work-img">
+                    <div class="p-4 bg-gray-50">
+                        <h4 class="font-bold text-lg mb-2">Engine Rebuild - Ford F150</h4>
+                        <p class="text-gray-600">Complete engine rebuild with new components and 12-month warranty.</p>
+                    </div>
+                </div>
+                
+                <!-- Work 2 -->
+                <div class="overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Brake repair" 
+                         class="work-img">
+                    <div class="p-4 bg-gray-50">
+                        <h4 class="font-bold text-lg mb-2">Brake System Overhaul - Toyota Camry</h4>
+                        <p class="text-gray-600">Complete brake system replacement with premium ceramic pads.</p>
+                    </div>
+                </div>
+                
+                <!-- Work 3 -->
+                <div class="overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Transmission work" 
+                         class="work-img">
+                    <div class="p-4 bg-gray-50">
+                        <h4 class="font-bold text-lg mb-2">Transmission Service - Honda Civic</h4>
+                        <p class="text-gray-600">Transmission fluid flush and filter replacement for smooth shifting.</p>
+                    </div>
+                </div>
+                
+                <!-- Work 4 -->
+                <div class="overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Suspension work" 
+                         class="work-img">
+                    <div class="p-4 bg-gray-50">
+                        <h4 class="font-bold text-lg mb-2">Suspension Upgrade - BMW 3 Series</h4>
+                        <p class="text-gray-600">Complete suspension system replacement with performance shocks.</p>
+                    </div>
+                </div>
+                
+                <!-- Work 5 -->
+                <div class="overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1563720223488-8f2f62a6e71a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="AC repair" 
+                         class="work-img">
+                    <div class="p-4 bg-gray-50">
+                        <h4 class="font-bold text-lg mb-2">AC System Repair - Chevrolet Malibu</h4>
+                        <p class="text-gray-600">Complete AC system overhaul with compressor replacement.</p>
+                    </div>
+                </div>
+                
+                <!-- Work 6 -->
+                <div class="overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Electrical work" 
+                         class="work-img">
+                    <div class="p-4 bg-gray-50">
+                        <h4 class="font-bold text-lg mb-2">Electrical Diagnostics - Mercedes C-Class</h4>
+                        <p class="text-gray-600">Complete electrical system diagnostic and wiring repair.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 lg:py-24 services-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-red-600 font-bold uppercase tracking-wider">Testimonials</span>
+                <h2 class="font-heading text-4xl lg:text-5xl font-bold mt-2 mb-4">What Our <span class="text-red-600">Clients</span> Say</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Don't just take our word for it. Hear from our satisfied customers.</p>
+            </div>
+            
+            <div class="testimonial-slider flex space-x-6 pb-6">
+                <!-- Testimonial 1 -->
+                <div class="min-w-[300px] md:min-w-[400px] bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Michael Rodriguez</h4>
+                            <p class="text-gray-500">Toyota Camry Owner</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"John diagnosed and fixed my transmission issue that two other shops couldn't figure out. Honest pricing and excellent work. My car runs better than ever!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="min-w-[300px] md:min-w-[400px] bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Sarah Johnson</h4>
+                            <p class="text-gray-500">Honda CR-V Owner</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"I've been taking my cars to John for 10 years. He's always honest about what needs fixing and what can wait. The quality of work is outstanding every time."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="min-w-[300px] md:min-w-[400px] bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Customer">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Robert Chen</h4>
+                            <p class="text-gray-500">Ford F-150 Owner</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"The engine rebuild on my truck was done perfectly. It's been 2 years and 30,000 miles with zero issues. John is a true professional who stands behind his work."</p>
+                </div>
+            </div>
+            
+            <div class="flex justify-center space-x-4 mt-8">
+                <button id="prevTestimonial" class="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="nextTestimonial" class="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-bg text-white py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-red-400 font-bold uppercase tracking-wider">Contact Us</span>
+                <h2 class="font-heading text-4xl lg:text-5xl font-bold mt-2 mb-4">Get In <span class="text-red-400">Touch</span></h2>
+                <p class="text-xl text-gray-200 max-w-2xl mx-auto">Schedule an appointment or get a free estimate. We're here to help with all your automotive needs.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div class="contact-info-box">
+                        <div class="w-12 h-12 bg-red-600/20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-map-marker-alt text-red-400"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Our Location</h4>
+                        <p class="text-gray-300">123 Auto Care Avenue<br>Springfield, ST 12345</p>
+                    </div>
+                    
+                    <div class="contact-info-box">
+                        <div class="w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-phone-alt text-blue-400"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Call Us</h4>
+                        <p class="text-gray-300">
+                            <span class="block">(555) 123-4567</span>
+                            <span class="text-sm text-gray-400">Mon-Fri: 8am-6pm</span>
+                        </p>
+                    </div>
+                    
+                    <div class="contact-info-box">
+                        <div class="w-12 h-12 bg-green-600/20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-envelope text-green-400"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Email Us</h4>
+                        <p class="text-gray-300">
+                            <span class="block">info@precisionauto.com</span>
+                            <span class="text-sm text-gray-400">Response within 24 hours</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
+                        <form id="contactForm">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-white mb-2">Your Name</label>
+                                    <input type="text" class="w-full bg-white/20 border border-white/30 rounded-lg py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="John Smith" required>
+                                </div>
+                                <div>
+                                    <label class="block text-white mb-2">Your Phone</label>
+                                    <input type="tel" class="w-full bg-white/20 border border-white/30 rounded-lg py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="(555) 123-4567" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-white mb-2">Your Email</label>
+                                <input type="email" class="w-full bg-white/20 border border-white/30 rounded-lg py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="john@example.com" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-white mb-2">Vehicle Info</label>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <input type="text" class="bg-white/20 border border-white/30 rounded-lg py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Make (e.g., Toyota)" required>
+                                    <input type="text" class="bg-white/20 border border-white/30 rounded-lg py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Model (e.g., Camry)" required>
+                                    <input type="text" class="bg-white/20 border border-white/30 rounded-lg py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Year" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-white mb-2">Service Needed</label>
+                                <select class="w-full bg-white/20 border border-white/30 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-500">
+                                    <option value="">Select a service</option>
+                                    <option value="diagnostic">Engine Diagnostic</option>
+                                    <option value="oil">Oil Change</option>
+                                    <option value="brakes">Brake Service</option>
+                                    <option value="transmission">Transmission</option>
+                                    <option value="ac">AC Repair</option>
+                                    <option value="electrical">Electrical</option>
+                                    <option value="other">Other/Not Sure</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <label class="block text-white mb-2">Message</label>
+                                <textarea class="w-full bg-white/20 border border-white/30 rounded-lg py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500" rows="4" placeholder="Describe the issue or ask a question..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full btn-primary text-lg py-4">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-tools text-xl text-red-600"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-heading text-2xl font-bold">Precision<span class="text-red-500">Auto</span></h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">Expert automotive repair and maintenance with 25+ years of experience. Your trusted mechanic for all makes and models.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Me</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="#work" class="text-gray-400 hover:text-white">Our Work</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Business Hours</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Monday - Friday</span>
+                            <span>8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday</span>
+                            <span>9:00 AM - 4:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>Emergency Only</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Emergency Service</h3>
+                    <p class="text-gray-400 mb-4">24/7 emergency towing and roadside assistance available for existing customers.</p>
+                    <div class="bg-red-600/20 border border-red-600/30 rounded-lg p-4">
+                        <p class="font-bold">Emergency Hotline:</p>
+                        <p class="text-2xl font-bold">(555) 911-AUTO</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">&copy; 2023 Precision Auto Care. All rights reserved.</p>
+                    <div class="flex space-x-4 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-yelp"></i>
+                        </a>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-sm mt-4">ASE Certified Master Technician | Licensed & Insured | 12-Month Warranty on All Repairs</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Set up sticky nav
+            setupStickyNav();
+            
+            // Animate counters
+            animateCounters();
+            
+            // Set up testimonial slider
+            setupTestimonialSlider();
+        });
+        
+        // Set up all event listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                });
+            });
+            
+            // Contact form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const name = this.querySelector('input[type="text"]').value;
+                const phone = this.querySelector('input[type="tel"]').value;
+                
+                // Show success message
+                alert(`Thank you ${name}! We've received your inquiry and will call you at ${phone} within 2 hours.`);
+                
+                // Reset form
+                this.reset();
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Sticky navigation
+        function setupStickyNav() {
+            const nav = document.querySelector('.sticky-nav');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    nav.classList.add('scrolled');
+                    nav.classList.remove('bg-transparent');
+                } else {
+                    nav.classList.remove('scrolled');
+                    nav.classList.add('bg-transparent');
+                }
+            });
+        }
+        
+        // Animate counter numbers
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // The lower the slower
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    
+                    // Lower inc to slow and higher to slow
+                    const inc = target / speed;
+                    
+                    // Check if target is reached
+                    if (count < target) {
+                        // Add inc to count and output in counter
+                        counter.innerText = Math.ceil(count + inc);
+                        // Call function every ms
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                // Start animation when counter is in view
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        updateCount();
+                    }
+                });
+                
+                observer.observe(counter);
+            });
+        }
+        
+        // Testimonial slider functionality
+        function setupTestimonialSlider() {
+            const slider = document.querySelector('.testimonial-slider');
+            const prevBtn = document.getElementById('prevTestimonial');
+            const nextBtn = document.getElementById('nextTestimonial');
+            
+            if (!slider || !prevBtn || !nextBtn) return;
+            
+            const scrollAmount = 400;
+            
+            prevBtn.addEventListener('click', () => {
+                slider.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                slider.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Auto-scroll testimonials
+            let autoScroll = setInterval(() => {
+                slider.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+                
+                // Reset to start if at end
+                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+                    setTimeout(() => {
+                        slider.scrollTo({
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    }, 1000);
+                }
+            }, 5000);
+            
+            // Pause auto-scroll on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(autoScroll);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                autoScroll = setInterval(() => {
+                    slider.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                    
+                    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+                        setTimeout(() => {
+                            slider.scrollTo({
+                                left: 0,
+                                behavior: 'smooth'
+                            });
+                        }, 1000);
+                    }
+                }, 5000);
+            });
+        }
+        
+        // Emergency hotline button
+        function callEmergency() {
+            if (confirm('Call Emergency Hotline: (555) 911-AUTO?')) {
+                // In a real website, this would initiate a phone call
+                window.location.href = 'tel:5559112886';
+            }
+        }
+    </script>
+</body>
+</html>
